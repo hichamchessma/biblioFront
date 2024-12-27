@@ -1,0 +1,21 @@
+<div class="book-list-container">
+  <h2>Liste des Livres</h2>
+  
+  <div class="actions">
+    <button [routerLink]="['/books/new']" class="add-button">Ajouter un livre</button>
+  </div>
+
+  <div class="books-grid">
+    <div *ngFor="let book of books" class="book-card">
+      <h3>{{ book.title }}</h3>
+      <p>Auteur: {{ book.author }}</p>
+      <p>ISBN: {{ book.isbn }}</p>
+      <p>Disponible: {{ book.available ? 'Oui' : 'Non' }}</p>
+      
+      <div class="card-actions">
+        <button [routerLink]="['/books', book.id]" class="view-button">Voir détails</button>
+        <button (click)="deleteBook(book.id)" class="delete-button">Supprimer</button>
+      </div>
+    </div>
+  </div>
+</div>
